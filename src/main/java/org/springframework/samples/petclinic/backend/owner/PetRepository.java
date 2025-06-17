@@ -14,6 +14,7 @@
 package org.springframework.samples.petclinic.backend.owner;
 
 import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +36,7 @@ public interface PetRepository extends Repository<Pet, Integer> {
 	 * 
 	 * @return a Collection of {@link PetType}s.
 	 */
-	@Query("SELECT ptype FROM PetType ptype ORDER BY ptype.name")
+	@Query("FROM PetType ptype ORDER BY ptype.name")
 	@Transactional(readOnly = true)
 	List<PetType> findPetTypes();
 
